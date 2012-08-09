@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>ColorNinja</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+    <script type="text/javascript" src="zepto.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="script.js"></script>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvas"></canvas>
+        <div id="colorpicker">
+            <ul>
+                <li><a href="#" class="black selected" rel="000"></a></li>
+                <li><a href="#" class="grey" rel="808080"></a></li>
+                <li><a href="#" class="red" rel="f00"></a></li>
+                <li><a href="#" class="orange" rel="ff8c00"></a></li>
+                <li><a href="#" class="yellow" rel="ffff00"></a></li>
+                <li><a href="#" class="green" rel="00ff00"></a></li>
+                <li><a href="#" class="blue" rel="00bfff"></a></li>
+                <li><a href="#" class="navy" rel="0000cd"></a></li>
+                <li><a href="#" class="violet" rel="4b0082"></a></li>
+            </ul>
+        </div>
+        <div id="penpicker">
+            <ul>
+                <li><div rel="2" class="selected"><a href="#" class="px2" rel="2"></a></div></li>
+                <li><div rel="4"><a href="#" class="px4" rel="4"></a></div></li>
+                <li><div rel="8"><a href="#" class="px8" rel="8"></a></div></li>
+                <li><div rel="16"><a href="#" class="px16" rel="16"></a></div></li>
+            </ul>
+        </div>
+        <div id="button"><span>↑</span></div>
+    </div>
+</body>
+</html>
