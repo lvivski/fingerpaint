@@ -15,6 +15,21 @@ function getControlPoints(a, b, c, t) {
     ]
 }
 
+function drawDot(ctx, dot) {
+  ctx.beginPath();
+  ctx.arc(dot.x, dot.y, penSize / 2, 0, Math.PI*2, true);
+  ctx.closePath();
+  ctx.fill();
+}
+
+function drawLine(ctx, knots) {
+  ctx.beginPath();
+  ctx.moveTo(knots[0].x, knots[0].y);
+  ctx.lineTo(knots[1].x, knots[1].y);
+  ctx.stroke();
+  ctx.closePath();
+}
+
 function drawSpline(ctx, knots, t, closed) {
     var cp = [],
         n = knots.length;
@@ -257,7 +272,13 @@ $('#canvas')
         mousePressed = false;
         ctx.putImageData(originalImageData, 0, 0);
         knots.forEach(function (touches) {
-            drawSpline(ctx, touches, 1 / 3, false);
+            if (touches.length === 1) {
+              drawDot(ctx, touches[0]);
+            } else if (touches.length === 2) {
+              drawLine(ctx, touches);
+            } else {
+              drawSpline(ctx, touches, 1 / 3, false);
+            }
         })
     })
     .bind('touchcancel', function (e) {
