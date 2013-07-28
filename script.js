@@ -99,6 +99,7 @@ ctx.lineCap = 'round';
 ctx.lineJoin = 'round';
 ctx.lineWidth = penSize;
 ctx.strokeStyle = strokeColor;
+ctx.fillStyle = strokeColor;
 
 var currentOrientation = orientation;
 
@@ -212,6 +213,10 @@ $('#canvas')
         mousePressed = true;
 
         var touches = e.touches || [e];
+        
+        ctx.lineWidth = penSize;
+        ctx.strokeStyle = strokeColor;
+        ctx.fillStyle = strokeColor;
 
         for (var i = 0, touch; i < touches.length; ++i) {
             touch = touches[i];
@@ -234,7 +239,8 @@ $('#canvas')
 
         var time = e.timeStamp - startTime;
 
-        var touches = e.touches || [e]
+        var touches = e.touches || [e];
+        
         for (var i = 0, touch, velocity, lw; i < touches.length; ++i) {
             touch = touches[i];
             if (Math.max(
@@ -248,9 +254,6 @@ $('#canvas')
             lw = penSize * velocity;
             if (lw < penSize * 0.3) lw = penSize * 0.3;
             else if (lw > penSize) lw = penSize;*/
-
-            ctx.lineWidth = penSize;
-            ctx.strokeStyle = strokeColor;
 
             ctx.beginPath();
             ctx.moveTo(startPosition[i].x, startPosition[i].y);
